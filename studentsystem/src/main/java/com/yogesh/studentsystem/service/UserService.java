@@ -1,15 +1,18 @@
 package com.yogesh.studentsystem.service;
 
+import com.yogesh.studentsystem.payloads.UserDto;
 
-import com.yogesh.studentsystem.controller.dto.UserLoginDto;
-import com.yogesh.studentsystem.controller.dto.UserRegistrationDto;
-import com.yogesh.studentsystem.model.User;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
 public interface UserService {
-   User save(UserRegistrationDto userRegistrationDto);
-   User loadUserByUsername(String username);
-   String userLogin(UserLoginDto userLoginDto);
-}
 
+    UserDto registerNewUser(UserDto user);
+
+    UserDto createUser(UserDto user);
+    UserDto updateUser(UserDto user,Integer userId);
+    UserDto getUserById(Integer userId);
+    List<UserDto> getAllUsers();
+    void deleteUser(Integer userId);
+
+
+}

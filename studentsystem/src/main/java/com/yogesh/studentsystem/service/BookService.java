@@ -1,24 +1,28 @@
 package com.yogesh.studentsystem.service;
 
-import com.yogesh.studentsystem.controller.dto.BookDto;
-import com.yogesh.studentsystem.model.Book;
-import com.yogesh.studentsystem.repository.BookRepo;
-import org.springframework.stereotype.Service;
+import com.yogesh.studentsystem.payloads.BookDto;
 
-@Service
-public class BookService {
+import java.util.List;
 
-    private BookRepo bookRepo;
+public interface BookService {
 
-    public BookService(BookRepo bookRepo) {
-        this.bookRepo = bookRepo;
-    }
+    //create
+    BookDto createBook(BookDto bookDto);
 
-    public Book addBookService(BookDto bookDto){
-        Book newBook= new Book();
-        newBook.setName(bookDto.getName());
-        newBook.setAuthor(bookDto.getAuthor());
-        newBook.setCategery(bookDto.getCategery());
-        return bookRepo.save(newBook);
-    }
+
+    //update
+    BookDto updateBook(BookDto bookDto,Integer bookId);
+
+
+    //delete
+    void deleteBook(Integer bookId);
+
+
+    //get
+    BookDto getBookById(Integer bookId);
+
+    //get All
+    List<BookDto> getAllBooks();
+
+
 }

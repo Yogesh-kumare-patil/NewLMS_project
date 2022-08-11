@@ -1,12 +1,11 @@
 package com.yogesh.studentsystem.repository;
 
-import com.yogesh.studentsystem.model.Book;
+
+import com.yogesh.studentsystem.entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
-@Repository
-public interface BookRepo extends JpaRepository<Book, Long> {
-    List<Book> findByName(String name);
+public interface BookRepo extends JpaRepository<Book,Integer> {
+    Book findBookByBookTitle(String title);
 }
