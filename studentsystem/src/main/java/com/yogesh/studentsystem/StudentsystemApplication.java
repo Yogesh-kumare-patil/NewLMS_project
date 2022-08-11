@@ -54,7 +54,6 @@ public class StudentsystemApplication implements CommandLineRunner {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
