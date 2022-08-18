@@ -25,4 +25,6 @@ public interface BookService {
     List<BookDto> getAllBooks();
 
 
+    List<BookDto> getAllIssuedBooks();
+
 }

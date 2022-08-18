@@ -1,5 +1,6 @@
 package com.yogesh.studentsystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cart {
+
+//    @JsonBackReference
+//    private List<Book> bookList = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

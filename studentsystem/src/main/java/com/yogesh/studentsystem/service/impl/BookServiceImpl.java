@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,6 +63,19 @@ public class BookServiceImpl implements BookService {
     public List<BookDto> getAllBooks() {
         List<Book> books = this.bookRepo.findAll();
         List<BookDto> bookDtos = books.stream().map((book) -> this.modelMapper.map(book,BookDto.class)).collect(Collectors.toList());
+        return bookDtos;
+    }
+
+    @Override
+    public List<BookDto> getAllIssuedBooks() {
+        List<Book> books = this.bookRepo.findAll();
+        List<Book> issuedBooks = new ArrayList<>();
+        for(int i=0;i<books.size();i++){
+            if(books.get(i).getCart()!=null){
+                issuedBooks.add(books.get(i));
+            }
+        }
+        List<BookDto> bookDtos = issuedBooks.stream().map((book) -> this.modelMapper.map(book,BookDto.class)).collect(Collectors.toList());
         return bookDtos;
     }
 }

@@ -37,6 +37,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto createUser(UserDto userDto) {
         User user = this.dtoToUser(userDto);
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        Role role = this.roleRepo.findById(AppConstants.NORMAL_USER).get();
+
+        user.getRoles().add(role);
         User savedUser = this.userRepo.save(user);
         return this.userToDto(savedUser);
     }
@@ -49,6 +53,7 @@ public class UserServiceImpl implements UserService {
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
         User updatedUser = this.userRepo.save(user);
         UserDto userDto1 = this.userToDto(updatedUser);
 

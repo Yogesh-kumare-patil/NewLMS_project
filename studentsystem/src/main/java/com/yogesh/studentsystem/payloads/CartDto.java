@@ -11,7 +11,7 @@ public class CartDto {
 //    private Integer userId;
 
     private String userEmail;
-    private String bookTitle;
+    private Integer bookId;
 
     @Data
     public static class JwtAuthResponse {

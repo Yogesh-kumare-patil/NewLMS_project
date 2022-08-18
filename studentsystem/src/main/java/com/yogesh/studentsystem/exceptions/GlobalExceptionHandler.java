@@ -39,4 +39,11 @@ public class GlobalExceptionHandler {
         ApiResponse apiResponse = new ApiResponse(message, true);
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(BookIsAlreadyIssuedException.class)
+    public ResponseEntity<ApiResponse> bookIsAlreadyIssuedExceptionHandler(BookIsAlreadyIssuedException ex){
+        String message = ex.getMessage();
+        ApiResponse apiResponse = new ApiResponse(message,false);
+        return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.CONFLICT);
+    }
 }
