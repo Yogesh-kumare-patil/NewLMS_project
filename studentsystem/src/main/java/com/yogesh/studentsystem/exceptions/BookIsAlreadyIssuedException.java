@@ -13,7 +13,7 @@ public class BookIsAlreadyIssuedException  extends RuntimeException{
 
     public BookIsAlreadyIssuedException(String recourceName, String fieldName, long fieldValue) {
 
-        super(String.format("%s book is already Issued %s : %s", recourceName,fieldName,fieldValue));
+        super(String.format("%s is already Issued book%s : %s and you will be in queue", recourceName,fieldName,fieldValue));
         this.recourceName = recourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;

@@ -24,7 +24,7 @@ public class Book {
     private String author;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cartId")
     private Cart cart;
 
 }

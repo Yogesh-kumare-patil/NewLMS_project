@@ -20,14 +20,14 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('NORMAL')")
     @PostMapping("/issueBook")
     public ResponseEntity<String> issueBook(@RequestBody CartDto cartDto){
         String issueBook = this.cartService.issueBook(cartDto);
         return new ResponseEntity<String>(issueBook, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('NORMAL')")
     @PostMapping("/returnBook")
     public ResponseEntity<String> returnBook(@RequestBody CartDto cartDto){
         String returnBook = this.cartService.returnBook(cartDto);
